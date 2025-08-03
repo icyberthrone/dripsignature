@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drip Signature Checkout</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 40px 16px;
+      color: #333;
+    }
+
+    .checkout-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #071e3d;
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #222;
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #fafafa;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #071e3d;
+      outline: none;
+      background: #fff;
+    }
+
+    .summary-item, .summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .summary-total {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .checkout-button {
+      width: 100%;
+      background-color: #071e3d;
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .checkout-button:hover {
+      background-color: #0e2d5b;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .modal-content h2 {
+      color: #071e3d;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .close-btn {
+      background: #071e3d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .whatsapp-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 16px;
+      background: #25d366;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .checkout-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <h1>Checkout</h1>
+    <form id="checkoutForm">
+      <section class="section">
+        <h2>Billing Information</h2>
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="phone" placeholder="Phone Number" required />
+        <input type="text" id="color" list="color-options" placeholder="Preferred Color" required />
+        <datalist id="color-options">
+          <option value="Red"></option>
+          <option value="Royal Blue"></option>
+          <option value="Emraled Green"></option>
+          <option value="Obsidian Black"></option>
+          <option value="White"></option>
+          <option value="Grey"></option>
+          <option value="Sahara Cream (Milk)"></option>
+          <option value="Gloden Clay(Carton Brown)"></option>
+          <option value="Sable Brown(Brown)"></option>
+        </datalist>
+        <input type="text" id="size" list="size-option" placeholder="size" required />
+        <datalist id="size-option">
+          <option value="56"></option>
+          <option value="56-Big size"></option>
+          <option value="58"></option>
+          <option value="58-Big size"></option>
+          <option value="60"></option>
+          <option value="60-Big size"></option>
+          <option value="62"></option>
+          <option value="62-Big size"></option>
+
+        </datalist>
+        <input type="text" id="address" placeholder="Delivery Address" required />
+        
+
+      </section>
+
+      <section class="section">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+          <p>Emirati Jallabiya × 1</p>
+          <span>₦17,000</span>
+        </div>
+        <div class="summary-total">
+          <strong>Total:</strong>
+          <strong>₦17,000</strong>
+        </div>
+      </section>
+
+      <button type="submit" class="checkout-button">Place Order</button>
+    </form>
+  </div>
+
+  <!-- Moniepoint Modal -->
+  <div id="moniepointModal" class="modal">
+    <div class="modal-content">
+      <h2>Make Payment via Moniepoint</h2>
+      <p><strong>Bank:</strong> Moniepoint MFB</p>
+      <p><strong>Account Name:</strong> Usman Umar</p>
+      <p><strong>Account Number:</strong> <a>9034510009</p></a>
+      <p><strong>Amount:</strong> ₦17,000</p>
+
+      <p style="margin-top:20px;">After payment, click below to send confirmation:</p>
+      <a id="whatsappLink" class="whatsapp-link" target="_blank">Send via WhatsApp</a>
+
+      <br/>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('checkoutForm');
+    const modal = document.getElementById('moniepointModal');
+    const whatsappLink = document.getElementById('whatsappLink');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const color = document.getElementById('color').value;
+      const size = document.getElementById('size').value;
+      const address = document.getElementById('address').value;
+
+      // Generate WhatsApp message
+      const message = encodeURIComponent(
+        `Hello Drip Signature, I've placed an order for an Emirati Jallabiya.
+    Name: ${name}
+    Phone: ${phone}
+    Color: ${color}
+    Size: ${size}
+    Address: ${address}
+    I've transferred ₦17,000 to your Moniepoint account. Please confirm.`
+      );
+
+      whatsappLink.href = `https://wa.me/2349034510009?text=${message}`; // replace with your real number
+      modal.style.display = 'block';
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

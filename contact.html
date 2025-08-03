@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Drip Signature</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f2f5;
+      margin: 0;
+      color: #111;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .contact-header {
+      text-align: center;
+    }
+
+    .contact-header h1 {
+      font-size: 3em;
+      font-family: 'Aboreto', cursive;
+      margin-bottom: 10px;
+    }
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 40px;
+      background: #fff;
+      padding: 56px 64px;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(34, 60, 80, 0.12);
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid #e6e6e6;
+      align-items: start;
+    }
+
+    .contact-form > div {
+      display: flex;
+      flex-direction: column;
+      grid-column: span 1;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #222;
+      letter-spacing: 0.02em;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 16px;
+      border: 1.5px solid #cfd8dc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      background-color: #f8fafb;
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #b6ceba;
+      background: #fff;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      grid-column: span 2;
+    }
+
+    .contact-form button {
+      background: linear-gradient(90deg, #b6ceba 0%, #050505 100%);
+      color: #fff;
+      border: none;
+      margin: 0 auto;
+      padding: 16px 0;
+      font-size: 1.1em;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      box-shadow: 0 2px 8px rgba(182, 206, 186, 0.15);
+      transition: background 0.3s, box-shadow 0.3s;
+      grid-column: span 2;
+    }
+
+    .contact-form button:hover,
+    .contact-form button:focus {
+      background: linear-gradient(90deg, #97b19c 0%, #b6ceba 100%);
+      box-shadow: 0 4px 16px rgba(182, 206, 186, 0.22);
+    }
+
+    @media (max-width: 900px) {
+      .contact-form {
+        grid-template-columns: 1fr;
+        padding: 32px 12px;
+        max-width: 100%;
+      }
+      .contact-form textarea,
+      .contact-form button {
+        grid-column: span 1;
+      }
+    }
+
+    .contact-header p {
+      font-size: 1.1em;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .contact-form label {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      background-color: #fafafa;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #000000;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 1em;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #97b19c;
+    }
+
+    @media screen and (max-width: 768px) {
+      .contact-header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <figure class="logo">
+      <img src="Black logo ds.png" alt="Drip Signature Logo">
+    </figure>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" style="font-weight:bold;">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <div class="contact-header">
+      <h1>Get in Touch</h1>
+      <p>Have a question, order inquiry, or feedback? We'd love to hear from you. Fill out the form below and we’ll respond within 24 hours.</p>
+    </div>
+    <form class="contact-form"
+          action="https://formspree.io/f/xqabrzyl"
+         method="POST">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Usman Umar" required>
+      </div>
+      
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="e.g. you@example.com" required>
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+</body>
+</html>
